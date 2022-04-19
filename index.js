@@ -22,6 +22,9 @@ let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
 
+const cors = require('cors');
+app.use(cors());
+
 
 
 //API Endpoints
