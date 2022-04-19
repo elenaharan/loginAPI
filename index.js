@@ -11,9 +11,12 @@ const User = Models.User;
 mongoose.connect('mongodb://localhost:27017', {useNewURLParser: true, useUnifiedTopology: true});
 
 const app = express();
+const passport = require('passport');
+require('./passport');
 const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+let auth = require('./auth')(app);
 
 
 
