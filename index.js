@@ -1,11 +1,21 @@
 const express = require('express'),
   uui = require('uuid'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  mongoose = require('mongoose');
+
+//Requiring Models
+const Models = require('./database/models');
+
+const User = Models.User;
+
+mongoose.connect('mongodb://localhost:27017', {useNewURLParser: true, useUnifiedTopology: true});
 
 const app = express();
 const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+
 
 //API Endpoints
 app.get('/', (req, res) => {
